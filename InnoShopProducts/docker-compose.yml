@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  innoshopproducts.api:
+    image: ${DOCKER_REGISTRY-}webapi
+    container_name: innoshopproducts.api
+    build:
+      context: .
+      dockerfile: WebAPI/Dockerfile
+    ports:
+      - "5002:5001"
+    depends_on:
+      - innoshopproducts.db
+
+  innoshopproducts.db:
+    image: postgres:latest
+    container_name: innoshopproducts.db
+    environment:
+      - POSTGRES_DB=innoshopproducts
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db2:/var/lib/postgresql/data
+    ports:
+      - 5433:5432

@@ -1,0 +1,71 @@
+version: '3.4'
+
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  innoshopproducts.api:
+    image: ${DOCKER_REGISTRY-}webapi
+    container_name: innoshopproducts.api
+    build:
+      context: ./InnoShopProducts
+      dockerfile: WebAPI/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5000
+    ports:
+      - "5001:5000"
+    volumes:
+      - ${USERPROFILE}/AppData/Roaming/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+    depends_on:
+      - innoshopproducts.db
+    networks:
+      - app-network
+
+  innoshopproducts.db:
+    image: postgres:latest
+    container_name: innoshopproducts.db
+    environment:
+      - POSTGRES_DB=innoshopproducts
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./InnoShopProducts/.containers/db2:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    networks:
+      - app-network
+
+  innoshopusers.api:
+    image: ${DOCKER_REGISTRY-}webapi1
+    container_name: innoshopusers.api
+    build:
+      context: ./InnoShopUsers
+      dockerfile: WebAPI/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ${USERPROFILE}/AppData/Roaming/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+    depends_on:
+      - innoshopusers.db
+    networks:
+      - app-network
+
+  innoshopusers.db:
+    image: postgres:latest
+    container_name: innoshopusers.db
+    environment:
+      - POSTGRES_DB=innoshopusers
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./InnoShopUsers/.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
