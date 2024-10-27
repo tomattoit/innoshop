@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace Application.Products.Get
 {
-    internal sealed class GetProductQueryHandler : IRequestHandler<GetProductQuery, ProductResponse>
+    public sealed class GetProductQueryHandler : IRequestHandler<GetProductQuery, ProductResponse>
     {
         private readonly IProductRepository _productRepository;
         public GetProductQueryHandler(IProductRepository productRepository)

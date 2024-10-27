@@ -4,7 +4,7 @@ using Application.Data;
 
 namespace Application.Users.Delete
 {
-    internal class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand>
+    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand>
     {
         private readonly IUserRepository _userRepository;
         private IUnitOfWork _unitOfWork;

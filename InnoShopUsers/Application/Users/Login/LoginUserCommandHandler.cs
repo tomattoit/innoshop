@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Users.Login
 {
-    internal sealed class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, string>
+    public sealed class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, string>
     {
         private IApplicationDbContext _context;
         private IPasswordHasher _passwordHasher;

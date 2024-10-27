@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace Application.Products.Update
 {
-    internal sealed class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
+    public sealed class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
     {
         private readonly IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;

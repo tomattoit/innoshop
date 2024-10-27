@@ -5,7 +5,7 @@ using Application.Authentication;
 
 namespace Application.Users.Create
 {
-    internal class CreateUserCommandHandler : IRequestHandler<CreateUserCommand>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand>
     {
         private readonly IUserRepository _userRepository;
         private IUnitOfWork _unitOfWork;

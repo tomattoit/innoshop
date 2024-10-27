@@ -4,7 +4,7 @@ using Application.Data;
 
 namespace Application.Products.Create
 {
-    internal class CreateProductCommandHandler : IRequestHandler<CreateProductCommand>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand>
     {
         private readonly IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;

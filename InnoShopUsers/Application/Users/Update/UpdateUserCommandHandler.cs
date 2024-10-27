@@ -5,7 +5,7 @@ using Application.Authentication;
 
 namespace Application.Users.Update
 {
-    internal sealed class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand>
+    public sealed class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand>
     {
         private readonly IUserRepository _userRepository;
         private IUnitOfWork _unitOfWork;

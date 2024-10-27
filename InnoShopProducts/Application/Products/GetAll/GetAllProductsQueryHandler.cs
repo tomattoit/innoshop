@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Application.Products.GetAll
 {
-    internal sealed class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, List<ProductResponse>>
+    public sealed class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, List<ProductResponse>>
     {
         private readonly IProductRepository _productRepository;
         public GetAllProductsQueryHandler(IProductRepository productRepository)

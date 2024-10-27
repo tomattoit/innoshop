@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Users.GetByEmail
 {
-    internal sealed class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, UserResponse>
+    public sealed class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, UserResponse>
     {
         private readonly IApplicationDbContext _context;
         public GetUserByEmailQueryHandler(IApplicationDbContext context)

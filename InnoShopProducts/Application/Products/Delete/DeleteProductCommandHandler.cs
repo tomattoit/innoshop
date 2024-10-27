@@ -4,7 +4,7 @@ using Application.Data;
 
 namespace Application.Products.Delete
 {
-    internal class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
+    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
     {
         private readonly IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;

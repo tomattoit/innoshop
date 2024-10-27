@@ -5,7 +5,7 @@ using Application.Data;
 
 namespace Application.Users.Get
 {
-    internal sealed class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserResponse>
+    public sealed class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserResponse>
     {
         private readonly IApplicationDbContext _context;
         public GetUserQueryHandler(IApplicationDbContext context)
